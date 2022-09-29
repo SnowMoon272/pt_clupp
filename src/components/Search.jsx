@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const SearchStyle = styled.header`
-	/* border: solid blue 3px; */
 	box-sizing: border-box;
 
 	width: 100%;
@@ -25,6 +24,23 @@ const SearchStyle = styled.header`
 		font-weight: 600;
 		cursor: pointer;
 		text-decoration: none;
+	}
+
+	@media (max-width: 360px) {
+		& .addCar {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 20%;
+			padding: 12px 2px;
+			font-size: 1.6rem;
+			border-radius: 8px;
+			color: white;
+			font-weight: 600;
+			cursor: pointer;
+			text-decoration: none;
+		}
 	}
 `;
 

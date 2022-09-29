@@ -58,6 +58,26 @@ const CardStyle = styled.div`
 			font-weight: bold;
 		}
 	}
+
+	@media (max-width: 360px) {
+		& .DeleteIconBTN {
+			padding: 7px;
+			& .DeleteIcon {
+				width: 20px;
+				height: 20px;
+				color: white;
+			}
+		}
+		& img {
+			width: 100%;
+			height: fit-content;
+		}
+		& .infoTextCont {
+			& .infoText {
+				font-size: 2.2rem;
+			}
+		}
+	}
 `;
 
 function Card({ brand, frontPictureURL, model, year, id }) {

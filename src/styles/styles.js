@@ -36,6 +36,32 @@ export const IniciarSesionStyle = styled.section`
 			}
 		}
 	}
+
+	@media (max-width: 360px) {
+		/* background-color: #00ddff29; */
+		align-items: flex-start;
+
+		& .formContainer {
+			box-sizing: border-box;
+			width: 100%;
+			height: 60%;
+
+			& h1 {
+				font-size: 3rem;
+				font-weight: bold;
+				margin: 0px;
+			}
+
+			& p {
+				font-size: 1.4rem;
+
+				& .btnState {
+					font-size: 1.4rem;
+					letter-spacing: 0.8px;
+				}
+			}
+		}
+	}
 `;
 
 export const CrearAutoStyle = styled.div`
@@ -124,6 +150,69 @@ export const CrearAutoStyle = styled.div`
 			align-items: center;
 		}
 	}
+
+	@media (max-width: 360px) {
+		width: 100%;
+		align-items: flex-start;
+
+		& .Container {
+			width: 100%;
+			justify-content: flex-start;
+
+			& h1 {
+				font-size: 3.2rem;
+				margin: 25px 0px 35px 0px;
+				font-weight: 600;
+				text-align: center;
+			}
+
+			& .infoContainer {
+				width: 90%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+
+				& .imgContainer {
+					width: 90%;
+
+					& img {
+						width: 100%;
+					}
+
+					& .inputFile {
+						top: -30px;
+						width: 50%;
+					}
+				}
+
+				& .formulario {
+					width: 90%;
+					margin: 0px;
+
+					& .input {
+						width: 100%;
+						margin: 15px 0px;
+
+						input {
+							width: 100%;
+							height: 50px;
+						}
+					}
+				}
+			}
+
+			& .añadirVeiculo {
+				position: relative;
+				top: 220px;
+				display: flex;
+				align-self: center;
+				margin: 0px;
+				font-size: 1.6rem;
+				width: 45%;
+			}
+		}
+	}
 `;
 
 export const ButtonStyle = styled.button`
@@ -136,6 +225,15 @@ export const ButtonStyle = styled.button`
 	font-size: 2.2rem;
 	font-weight: 600;
 	cursor: pointer;
+	position: absolute;
+
+	@media (max-width: 360px) {
+		width: 180px;
+		height: 45px;
+		font-size: 2rem;
+		position: relative;
+		left: 20%;
+	}
 `;
 
 export const FormStyle = styled.form`
@@ -203,6 +301,19 @@ export const FormStyle = styled.form`
 				cursor: pointer;
 				width: 35px;
 				height: 35px;
+			}
+		}
+	}
+
+	@media (max-width: 360px) {
+		width: 85%;
+
+		& .input {
+			width: 100%;
+			&__field {
+				box-sizing: border-box;
+				height: 50px;
+				width: 100%;
 			}
 		}
 	}

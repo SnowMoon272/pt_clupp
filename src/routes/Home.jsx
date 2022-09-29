@@ -16,8 +16,6 @@ const HomeStyle = styled.div`
 	align-items: center;
 
 	& .HomeStyleContainer {
-		/* border: solid yellow 3px; */
-
 		box-sizing: border-box;
 		width: 85%;
 	}
