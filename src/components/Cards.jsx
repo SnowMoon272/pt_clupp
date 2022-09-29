@@ -21,6 +21,7 @@ function Cards({ infoFirebase }) {
 				return (
 					!element.deleted && (
 						<Card
+							id={element.id}
 							brand={element.brand}
 							frontPictureURL={element.frontPictureURL}
 							model={element.model}
