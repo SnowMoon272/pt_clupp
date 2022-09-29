@@ -42,6 +42,7 @@ function CrearAuto() {
 		setimagen({ img: imagen, file: e.target.files[0] });
 		const result = await uploadFile(imagen.file);
 		setinfo({ ...info, frontPictureURL: result });
+		console.log(result);
 	};
 
 	const handlerSubmit = (e) => {
@@ -105,7 +106,7 @@ function CrearAuto() {
 					</FormStyle>
 				</div>
 				<ButtonStyle onClick={(e) => handlerSubmit(e)} className="añadirVeiculo">
-					Añadir Vehículo{" "}
+					Añadir Vehículo
 				</ButtonStyle>
 			</div>
 		</CrearAutoStyle>
