@@ -9,14 +9,13 @@ const GlobalStyle = createGlobalStyle`
   html {
   box-sizing: border-box;
   font-size: 62.5%;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

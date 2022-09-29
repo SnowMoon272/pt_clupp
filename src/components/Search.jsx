@@ -3,13 +3,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const SearchStyle = styled.header`
-	border: solid blue 3px;
+	/* border: solid blue 3px; */
 	box-sizing: border-box;
 
 	width: 100%;
 	height: auto;
 
 	& .addCar {
+		margin-top: 10px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

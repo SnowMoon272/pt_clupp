@@ -7,8 +7,6 @@ import Search from "../components/Search";
 import Cards from "../components/Cards";
 
 const HomeStyle = styled.div`
-	border: solid red 3px;
-
 	box-sizing: border-box;
 	width: 100%;
 	height: fit-content;
@@ -17,7 +15,7 @@ const HomeStyle = styled.div`
 	align-items: center;
 
 	& .HomeStyleContainer {
-		border: solid yellow 3px;
+		/* border: solid yellow 3px; */
 
 		box-sizing: border-box;
 		width: 85%;
@@ -32,7 +30,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 166449869094,
 			year: "2021",
 		},
 		{
@@ -41,7 +39,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 166445989094,
 			year: "2022",
 		},
 		{
@@ -50,7 +48,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 164459869094,
 			year: "2023",
 		},
 		{
@@ -59,7 +57,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 166445986904,
 			year: "2024",
 		},
 		{
@@ -68,7 +66,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 664459869094,
 			year: "2025",
 		},
 		{
@@ -77,7 +75,7 @@ function Home() {
 			frontPictureURL:
 				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
-			timestamp: 1664459869094,
+			timestamp: 16644598694,
 			year: "2026",
 		},
 	];
