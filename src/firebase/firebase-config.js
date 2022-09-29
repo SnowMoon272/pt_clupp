@@ -45,3 +45,12 @@ export async function uploadDocument(file) {
 		console.error("Error adding document: ", e);
 	}
 }
+
+export async function getDocuments() {
+	const querySnapshot = await getDocs(collection(db, "vehicles"));
+	const result = [];
+	querySnapshot.forEach((doc) => {
+		result.push(doc.data());
+	});
+	return result;
+}

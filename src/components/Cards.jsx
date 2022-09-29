@@ -14,10 +14,10 @@ const CardsStyle = styled.div`
 	flex-wrap: wrap;
 `;
 
-function Cards({ infoMok }) {
+function Cards({ infoFirebase }) {
 	return (
 		<CardsStyle>
-			{infoMok.map((element) => {
+			{infoFirebase?.map((element) => {
 				return (
 					!element.deleted && (
 						<Card

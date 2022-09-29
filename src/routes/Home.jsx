@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Search from "../components/Search";
 import Cards from "../components/Cards";
+import { getDocuments } from "../firebase/firebase-config";
 
 const HomeStyle = styled.div`
 	box-sizing: border-box;
@@ -23,62 +24,7 @@ const HomeStyle = styled.div`
 `;
 
 function Home() {
-	const infoMok = [
-		{
-			brand: "Jaguar",
-			deleted: false,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 166449869094,
-			year: "2021",
-		},
-		{
-			brand: "Jaguar",
-			deleted: false,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 166445989094,
-			year: "2022",
-		},
-		{
-			brand: "Jaguar",
-			deleted: true,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 164459869094,
-			year: "2023",
-		},
-		{
-			brand: "Jaguar",
-			deleted: false,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 166445986904,
-			year: "2024",
-		},
-		{
-			brand: "Jaguar",
-			deleted: false,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 664459869094,
-			year: "2025",
-		},
-		{
-			brand: "Jaguar",
-			deleted: false,
-			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
-			model: "12G",
-			timestamp: 16644598694,
-			year: "2026",
-		},
-	];
+	const [infoFirebase, setinfoFirebase] = useState([]);
 
 	const auth = getAuth();
 	const navigate = useNavigate();
@@ -91,13 +37,23 @@ function Home() {
 				navigate("/iniciarSesion");
 			}
 		});
+
+		getDocuments()
+			.then((data) => {
+				const info = data;
+				setinfoFirebase(info);
+			})
+			.catch((error) => {
+				const errorMessage = error.message;
+				alert(errorMessage);
+			});
 	}, []);
 
 	return (
 		<HomeStyle>
 			<div className="HomeStyleContainer">
 				<Search />
-				<Cards infoMok={infoMok} />
+				<Cards infoFirebase={infoFirebase} />
 			</div>
 		</HomeStyle>
 	);
