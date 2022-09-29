@@ -1,21 +1,30 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useUser, useFirebaseApp } from "reactfire";
 
 const HomeStyle = styled.div``;
 
 function Home() {
+	const auth = getAuth();
 	const navigate = useNavigate();
 
-	const firebase = useFirebaseApp();
-	const user = useUser();
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				console.log(user.email);
+			} else {
+				navigate("/iniciarSesion");
+			}
+		});
+	}, []);
 
 	return (
 		<HomeStyle>
 			<h1>Hola soy Home</h1>
-			<p>{user.email}</p>
+			<Link to={"/crearAuto"}>Añadir Veiculo</Link>
 		</HomeStyle>
 	);
 }

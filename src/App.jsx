@@ -16,7 +16,7 @@ const AppStyle = styled.div`
 
 function App() {
 	const [user, setuser] = useState(fabClasses);
-	console.log(user);
+	// console.log(user);
 
 	return (
 		<AppStyle>
@@ -31,4 +31,3 @@ function App() {
 }
 
 export default App;
-
