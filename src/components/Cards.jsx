@@ -12,6 +12,10 @@ const CardsStyle = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+
+	@media (max-width: 360px) {
+		justify-content: center;
+	}
 `;
 
 function Cards({ infoFirebase }) {

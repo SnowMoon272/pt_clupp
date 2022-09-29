@@ -60,7 +60,7 @@ function CrearAuto() {
 	return (
 		<CrearAutoStyle>
 			<div className="Container">
-				<h1>Añadir Vehículo</h1>
+				<h1>Añadir un Vehículo</h1>
 				<div className="infoContainer">
 					<div className="imgContainer">
 						<img src={imagen ? imagen.img : ImgAuto} alt="auto" />
@@ -106,7 +106,7 @@ function CrearAuto() {
 					</FormStyle>
 				</div>
 				<ButtonStyle onClick={(e) => handlerSubmit(e)} className="añadirVeiculo">
-					Añadir Vehículo
+					Agregar Vehículo
 				</ButtonStyle>
 			</div>
 		</CrearAutoStyle>

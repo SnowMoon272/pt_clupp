@@ -18,6 +18,13 @@ const HeaderStyle = styled.header`
 		height: 120px;
 		margin-left: 120px;
 	}
+
+	@media (max-width: 360px) {
+		& .headerLogo {
+			align-self: center;
+			margin: 0px;
+		}
+	}
 `;
 
 function Header() {
