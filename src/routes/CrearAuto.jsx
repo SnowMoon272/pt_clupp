@@ -38,11 +38,10 @@ function CrearAuto() {
 
 	const handlerImg = async (e) => {
 		e.preventDefault();
-		const imagen = URL.createObjectURL(e.target.files[0]);
-		setimagen({ img: imagen, file: e.target.files[0] });
-		const result = await uploadFile(imagen.file);
+		const imagenRnder = URL.createObjectURL(e.target.files[0]);
+		setimagen({ img: imagenRnder, file: e.target.files[0] });
+		const result = await uploadFile(e.target.files[0]);
 		setinfo({ ...info, frontPictureURL: result });
-		console.log(result);
 	};
 
 	const handlerSubmit = (e) => {

@@ -9,9 +9,14 @@ const CardStyle = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	img {
+		width: 100px;
+		height: 100px;
+	}
 `;
 function Card({ info }) {
-	console.log(info);
+	// console.log(info);
 	return (
 		<CardStyle>
 			<h1>Hola soy {info.brand}</h1>

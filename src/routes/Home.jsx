@@ -30,7 +30,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: false,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2021",
@@ -39,7 +39,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: false,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2022",
@@ -48,7 +48,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: true,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2023",
@@ -57,7 +57,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: false,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2024",
@@ -66,7 +66,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: false,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2025",
@@ -75,7 +75,7 @@ function Home() {
 			brand: "Jaguar",
 			deleted: false,
 			frontPictureURL:
-				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/9f96b50f-3d37-476d-b808-cafab37d77ab?alt=media&token=6c84fbe4-2276-488c-b28a-2aeda8e0d3fa",
+				"https://firebasestorage.googleapis.com/v0/b/pt-clupp.appspot.com/o/Ford-Ka-frente.jpg?alt=media&token=7ec0cd8a-c2c6-4997-9906-8201b0d8393d",
 			model: "12G",
 			timestamp: 1664459869094,
 			year: "2026",
