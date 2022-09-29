@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
-import { FirebaseAppProvider } from "reactfire";
-import { firebaseConfig } from "./firebase/firebase-config";
 
 import App from "./App";
 
@@ -31,13 +29,10 @@ code {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<FirebaseAppProvider firebaseConfig={firebaseConfig}>
-		<BrowserRouter>
-			<React.StrictMode>
-				<GlobalStyle />
-				<App />
-			</React.StrictMode>
-		</BrowserRouter>
-	</FirebaseAppProvider>,
+	<BrowserRouter>
+		<React.StrictMode>
+			<GlobalStyle />
+			<App />
+		</React.StrictMode>
+	</BrowserRouter>,
 );
-
