@@ -43,7 +43,7 @@ export async function getDocuments() {
 		info.id = doc.id;
 		!info.deleted && result.push(info);
 	});
-	console.log(result);
+	// console.log(result);
 	return result;
 }
 
