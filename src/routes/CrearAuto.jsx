@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { CrearAutoStyle, ButtonStyle, FormStyle } from "../styles/styles";
 import ImgAuto from "../assets/img/no-photo.png";
-import { uploadFile } from "../firebase/firebase-config";
+import { uploadFile, uploadDocument } from "../firebase/firebase-config";
 
 function CrearAuto() {
 	const auth = getAuth();
@@ -14,9 +14,9 @@ function CrearAuto() {
 	const [info, setinfo] = useState({
 		brand: "",
 		model: "",
-		year: "",
+		year: 0,
 		frontPictureURL: "",
-		timestamp: "",
+		timestamp: 0,
 		deleted: false,
 	});
 
@@ -32,21 +32,22 @@ function CrearAuto() {
 
 	const handlerChange = (e) => {
 		e.preventDefault();
-		setinfo({ ...info, [e.target.name]: e.target.value });
+		const date = Date.now();
+		setinfo({ ...info, [e.target.name]: e.target.value, timestamp: date });
 	};
 
-	const handlerImg = (e) => {
+	const handlerImg = async (e) => {
 		e.preventDefault();
 		const imagen = URL.createObjectURL(e.target.files[0]);
 		setimagen({ img: imagen, file: e.target.files[0] });
-		// uploadFile(e.target.files[0]);
+		const result = await uploadFile(imagen.file);
+		setinfo({ ...info, frontPictureURL: result });
 	};
 
-	const handlerSubmit = async (e) => {
+	const handlerSubmit = (e) => {
+		e.preventDefault();
 		try {
-			e.preventDefault();
-			const result = await uploadFile(imagen.file);
-			setinfo({ ...info, frontPictureURL: result });
+			uploadDocument(info);
 			alert("Documento Creado.");
 			navigate("/");
 		} catch (error) {
@@ -96,7 +97,7 @@ function CrearAuto() {
 								name="year"
 								value={info.year}
 								className="input__field"
-								type="text"
+								type="number"
 								placeholder=" "
 							/>
 							<span className="input__label">Año</span>

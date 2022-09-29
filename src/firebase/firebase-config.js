@@ -14,8 +14,7 @@ import {
 	where,
 	setDoc,
 	deleteDoc,
-} from "firebase/firestore/lite";
-import { async } from "@firebase/util";
+} from "firebase/firestore";
 
 export const firebaseConfig = {
 	apiKey: process.env.REACT_APP_APIKEY,
@@ -36,4 +35,13 @@ export async function uploadFile(file) {
 	await uploadBytes(storageRef, file);
 	const url = await getDownloadURL(storageRef);
 	return url;
+}
+
+export async function uploadDocument(file) {
+	try {
+		const docRef = await addDoc(collection(db, "vehicles"), file);
+		console.log("Document written with ID: ", docRef.id);
+	} catch (e) {
+		console.error("Error adding document: ", e);
+	}
 }
