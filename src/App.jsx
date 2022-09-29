@@ -1,10 +1,11 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import CrearAuto from "./routes/CrearAuto";
 import IniciarSesion from "./routes/IniciarSesion";
-import { useFirebaseApp } from "reactfire";
 import Header from "./components/Header";
+import { fabClasses } from "@mui/material";
 
 const AppStyle = styled.div`
 	box-sizing: border-box;
@@ -14,16 +15,16 @@ const AppStyle = styled.div`
 `;
 
 function App() {
-	const firebase = useFirebaseApp();
-	console.log(firebase);
+	const [user, setuser] = useState(fabClasses);
+	console.log(user);
 
 	return (
 		<AppStyle>
 			<Header />
 			<Routes>
-				<Route exact path="/" element={<Home />} />
+				<Route exact path="/" element={<Home user={user} />} />
 				<Route exact path="/crearAuto" element={<CrearAuto />} />
-				<Route exact path="/iniciarSesion" element={<IniciarSesion />} />
+				<Route exact path="/iniciarSesion" element={<IniciarSesion setuser={setuser} />} />
 			</Routes>
 		</AppStyle>
 	);

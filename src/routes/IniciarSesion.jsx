@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase-config";
 
 const IniciarSesionStyle = styled.section`
 	box-sizing: border-box;
-	border: solid red 3px;
 	width: 100%;
 	height: 87%;
 	display: flex;
@@ -114,7 +116,7 @@ const IniciarSesionStyle = styled.section`
 			& .btnState {
 				background-color: white;
 				border: none;
-				color: blue;
+				color: #00a2ff;
 				cursor: pointer;
 				font-size: 1.2rem;
 				letter-spacing: 0.8px;
@@ -123,7 +125,12 @@ const IniciarSesionStyle = styled.section`
 	}
 `;
 
-function IniciarSesion() {
+function IniciarSesion({ setuser }) {
+	const navigate = useNavigate();
+	console.log("Iniciar sesion", auth);
+	const [email, setemail] = useState("");
+	const [password, setpassword] = useState("");
+
 	const [sesionRegitrar, setsesionRegitrar] = useState(true);
 	const [eye, seteye] = useState(true);
 
@@ -137,19 +144,67 @@ function IniciarSesion() {
 		seteye(!eye);
 	};
 
+	const handlerChangeEmail = (e) => {
+		e.preventDefault();
+		setemail(e.target.value);
+	};
+
+	const handlerChangePass = (e) => {
+		e.preventDefault();
+		setpassword(e.target.value);
+	};
+
+	const handlerSubmit = (e) => {
+		e.preventDefault();
+		if (!sesionRegitrar) {
+			createUserWithEmailAndPassword(auth, email, password)
+				.then((userCredential) => {
+					// const user = userCredential.user;
+					// setuser(user);
+					alert("Usuario Creado");
+					navigate("/");
+				})
+				.catch((error) => {
+					const errorMessage = error.message;
+					alert(errorMessage);
+				});
+		} else {
+			signInWithEmailAndPassword(auth, email, password)
+				.then((userCredential) => {
+					// const user = userCredential.user;
+					// setuser(user);
+					alert("Usuario Logueado");
+					navigate("/");
+				})
+				.catch((error) => {
+					const errorMessage = error.message;
+					alert(errorMessage);
+				});
+		}
+	};
+
 	return (
 		<IniciarSesionStyle>
 			<div className="formContainer">
 				{sesionRegitrar ? <h1>Iniciar Sesión</h1> : <h1>Crear Cuenta</h1>}
 				<form action="">
 					<label className="input">
-						<input autoComplete="off" className="input__field" type="text" placeholder=" " />
+						<input
+							autoComplete="off"
+							onChange={(e) => handlerChangeEmail(e)}
+							value={email}
+							className="input__field"
+							type="email"
+							placeholder=" "
+						/>
 						<span className="input__label">Correo</span>
 					</label>
 					<br />
 					<label className="input">
 						<input
 							autoComplete="off"
+							onChange={(e) => handlerChangePass(e)}
+							value={password}
 							className="input__field"
 							type={eye ? "password" : "text"}
 							placeholder=" "
@@ -166,7 +221,7 @@ function IniciarSesion() {
 						)}
 					</label>
 					<br />
-					<button type="submit" className="btnSubmit">
+					<button onClick={(e) => handlerSubmit(e)} type="submit" className="btnSubmit">
 						{sesionRegitrar ? "Iniciar Sesión" : "Registrarse"}
 					</button>
 				</form>
