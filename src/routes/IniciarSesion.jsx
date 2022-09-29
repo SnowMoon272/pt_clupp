@@ -71,6 +71,28 @@ const IniciarSesionStyle = styled.section`
 						}
 					}
 				}
+
+				& .btnEye {
+					border: none;
+					width: fit-content;
+					height: fit-content;
+					background-color: white;
+					position: absolute;
+					right: 8px;
+					top: 0px;
+					bottom: 0px;
+					margin: auto;
+					border-radius: 50%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					& .eye {
+						cursor: pointer;
+						width: 35px;
+						height: 35px;
+					}
+				}
 			}
 
 			& .btnSubmit {
@@ -103,11 +125,18 @@ const IniciarSesionStyle = styled.section`
 
 function IniciarSesion() {
 	const [sesionRegitrar, setsesionRegitrar] = useState(true);
+	const [eye, seteye] = useState(true);
 
 	const handlerState = (e) => {
 		e.preventDefault();
 		setsesionRegitrar(!sesionRegitrar);
 	};
+
+	const handlerEye = (e) => {
+		e.preventDefault();
+		seteye(!eye);
+	};
+
 	return (
 		<IniciarSesionStyle>
 			<div className="formContainer">
@@ -119,13 +148,27 @@ function IniciarSesion() {
 					</label>
 					<br />
 					<label className="input">
-						<input autoComplete="off" className="input__field" type="password" placeholder=" " />
+						<input
+							autoComplete="off"
+							className="input__field"
+							type={eye ? "password" : "text"}
+							placeholder=" "
+						/>
 						<span className="input__label">Contraseña</span>
+						{eye ? (
+							<button onClick={(e) => handlerEye(e)} type="button" className="btnEye">
+								<VisibilityIcon className="eye" />
+							</button>
+						) : (
+							<button onClick={(e) => handlerEye(e)} type="button" className="btnEye">
+								<VisibilityOffIcon className="eye" />
+							</button>
+						)}
 					</label>
 					<br />
-					<img src={VisibilityIcon} alt="" />
-					<img src={VisibilityOffIcon} alt="" />
-					<button className="btnSubmit">{sesionRegitrar ? "Iniciar Sesión" : "Registrarse"}</button>
+					<button type="submit" className="btnSubmit">
+						{sesionRegitrar ? "Iniciar Sesión" : "Registrarse"}
+					</button>
 				</form>
 				{sesionRegitrar ? (
 					<p>
