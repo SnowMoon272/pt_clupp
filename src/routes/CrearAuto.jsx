@@ -1,17 +1,23 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { CrearAutoStyle, ButtonStyle, FormStyle } from "../styles/styles";
 import ImgAuto from "../assets/img/no-photo.png";
+import { uploadFile } from "../firebase/firebase-config";
 
 function CrearAuto() {
 	const auth = getAuth();
 	const navigate = useNavigate();
+	const [imagen, setimagen] = useState(false);
 	const [info, setinfo] = useState({
-		marca: "",
-		modelo: "",
-		año: "",
+		brand: "",
+		model: "",
+		year: "",
+		frontPictureURL: "",
+		timestamp: "",
+		deleted: false,
 	});
 
 	useEffect(() => {
@@ -26,7 +32,27 @@ function CrearAuto() {
 
 	const handlerChange = (e) => {
 		e.preventDefault();
-		setinfo(e.target.value);
+		setinfo({ ...info, [e.target.name]: e.target.value });
+	};
+
+	const handlerImg = (e) => {
+		e.preventDefault();
+		const imagen = URL.createObjectURL(e.target.files[0]);
+		setimagen({ img: imagen, file: e.target.files[0] });
+		// uploadFile(e.target.files[0]);
+	};
+
+	const handlerSubmit = async (e) => {
+		try {
+			e.preventDefault();
+			const result = await uploadFile(imagen.file);
+			setinfo({ ...info, frontPictureURL: result });
+			alert("Documento Creado.");
+			navigate("/");
+		} catch (error) {
+			const errorMessage = error.message;
+			alert(errorMessage);
+		}
 	};
 
 	return (
@@ -34,14 +60,17 @@ function CrearAuto() {
 			<div className="Container">
 				<h1>Añadir Vehículo</h1>
 				<div className="infoContainer">
-					<img src={ImgAuto} alt="auto" />
+					<div className="imgContainer">
+						<img src={imagen ? imagen.img : ImgAuto} alt="auto" />
+						<input className="inputFile" type="file" onChange={(e) => handlerImg(e)} />
+					</div>
 					<FormStyle className="formulario">
 						<label className="input">
 							<input
 								autoComplete="off"
 								onChange={(e) => handlerChange(e)}
-								name="marca"
-								value={info.marca}
+								name="brand"
+								value={info.brand}
 								className="input__field"
 								type="text"
 								placeholder=" "
@@ -52,8 +81,8 @@ function CrearAuto() {
 							<input
 								autoComplete="off"
 								onChange={(e) => handlerChange(e)}
-								name="modelo"
-								value={info.modelo}
+								name="model"
+								value={info.model}
 								className="input__field"
 								type="text"
 								placeholder=" "
@@ -64,8 +93,8 @@ function CrearAuto() {
 							<input
 								autoComplete="off"
 								onChange={(e) => handlerChange(e)}
-								name="año"
-								value={info.año}
+								name="year"
+								value={info.year}
 								className="input__field"
 								type="text"
 								placeholder=" "
@@ -74,7 +103,9 @@ function CrearAuto() {
 						</label>
 					</FormStyle>
 				</div>
-				<ButtonStyle className="añadirVeiculo">Añadir Vehículo </ButtonStyle>
+				<ButtonStyle onClick={(e) => handlerSubmit(e)} className="añadirVeiculo">
+					Añadir Vehículo{" "}
+				</ButtonStyle>
 			</div>
 		</CrearAutoStyle>
 	);

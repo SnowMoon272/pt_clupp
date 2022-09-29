@@ -68,13 +68,33 @@ export const CrearAutoStyle = styled.div`
 			display: flex;
 			align-items: center;
 
-			& img {
-				border: solid black 1px;
+			& .imgContainer {
+				position: relative;
 
-				border-radius: 15px;
 				width: 50%;
 				height: 90%;
 				margin: 20px;
+				display: flex;
+				flex-direction: column;
+
+				& img {
+					border: solid black 1px;
+					border-radius: 15px;
+					width: 100%;
+					height: 100%;
+				}
+
+				& .inputFile {
+					position: absolute;
+					bottom: -30px;
+					width: fit-content;
+					left: 0px;
+					right: 0px;
+					margin: auto;
+					font-size: 1.2rem;
+					font-weight: 600;
+					cursor: pointer;
+				}
 			}
 
 			& .formulario {
