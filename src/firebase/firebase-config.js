@@ -3,18 +3,7 @@ import { initializeApp } from "firebase/app";
 import { v4 } from "uuid";
 import { getAuth } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import {
-	getFirestore,
-	collection,
-	addDoc,
-	getDocs,
-	doc,
-	getDoc,
-	query,
-	where,
-	setDoc,
-	deleteDoc,
-} from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore";
 
 export const firebaseConfig = {
 	apiKey: process.env.REACT_APP_APIKEY,
@@ -44,4 +33,23 @@ export async function uploadDocument(file) {
 	} catch (e) {
 		console.error("Error adding document: ", e);
 	}
+}
+
+export async function getDocuments() {
+	const querySnapshot = await getDocs(collection(db, "vehicles"));
+	const result = [];
+	querySnapshot.forEach((doc) => {
+		let info = doc.data();
+		info.id = doc.id;
+		!info.deleted && result.push(info);
+	});
+	// console.log(result);
+	return result;
+}
+
+export async function updateDocument(id) {
+	const washingtonRef = doc(db, "vehicles", id);
+	await updateDoc(washingtonRef, {
+		deleted: true,
+	});
 }

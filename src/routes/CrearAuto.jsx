@@ -38,14 +38,15 @@ function CrearAuto() {
 
 	const handlerImg = async (e) => {
 		e.preventDefault();
-		const imagen = URL.createObjectURL(e.target.files[0]);
-		setimagen({ img: imagen, file: e.target.files[0] });
-		const result = await uploadFile(imagen.file);
+		const imagenRnder = URL.createObjectURL(e.target.files[0]);
+		setimagen({ img: imagenRnder, file: e.target.files[0] });
+		const result = await uploadFile(e.target.files[0]);
 		setinfo({ ...info, frontPictureURL: result });
 	};
 
 	const handlerSubmit = (e) => {
 		e.preventDefault();
+
 		try {
 			uploadDocument(info);
 			alert("Documento Creado.");
@@ -105,7 +106,7 @@ function CrearAuto() {
 					</FormStyle>
 				</div>
 				<ButtonStyle onClick={(e) => handlerSubmit(e)} className="añadirVeiculo">
-					Añadir Vehículo{" "}
+					Añadir Vehículo
 				</ButtonStyle>
 			</div>
 		</CrearAutoStyle>
