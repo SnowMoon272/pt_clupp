@@ -18,13 +18,14 @@ const CardsStyle = styled.div`
 	}
 `;
 
-function Cards({ infoFirebase }) {
+function Cards({ infoFirebase, setinfoFirebase }) {
 	return (
 		<CardsStyle>
 			{infoFirebase?.map((element) => {
 				return (
 					!element.deleted && (
 						<Card
+							setinfoFirebase={setinfoFirebase}
 							id={element.id}
 							brand={element.brand}
 							frontPictureURL={element.frontPictureURL}

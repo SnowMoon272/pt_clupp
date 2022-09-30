@@ -51,7 +51,7 @@ function Home() {
 		<HomeStyle>
 			<div className="HomeStyleContainer">
 				<Search />
-				<Cards infoFirebase={infoFirebase} />
+				<Cards infoFirebase={infoFirebase} setinfoFirebase={setinfoFirebase} />
 			</div>
 		</HomeStyle>
 	);

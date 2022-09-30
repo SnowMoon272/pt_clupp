@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { updateDocument } from "../firebase/firebase-config";
+import { updateDocument, getDocuments } from "../firebase/firebase-config";
 
 const CardStyle = styled.div`
 	box-sizing: border-box;
@@ -80,11 +80,20 @@ const CardStyle = styled.div`
 	}
 `;
 
-function Card({ brand, frontPictureURL, model, year, id }) {
+function Card({ brand, frontPictureURL, model, year, id, setinfoFirebase }) {
 	const handlerClick = (e) => {
 		try {
 			updateDocument(id);
 			alert("Vehículo eliminado");
+			getDocuments()
+				.then((data) => {
+					const info = data;
+					setinfoFirebase(info);
+				})
+				.catch((error) => {
+					const errorMessage = error.message;
+					alert(errorMessage);
+				});
 		} catch (error) {
 			const errorMessage = error.message;
 			alert(errorMessage);
