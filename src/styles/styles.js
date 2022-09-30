@@ -61,6 +61,10 @@ export const IniciarSesionStyle = styled.section`
 			}
 		}
 	}
+
+	@media (max-height: 460px) {
+		height: 100%;
+	}
 `;
 
 export const CrearAutoStyle = styled.div`
@@ -167,6 +171,7 @@ export const CrearAutoStyle = styled.div`
 
 			& .infoContainer {
 				width: 90%;
+				height: 60%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -211,6 +216,10 @@ export const CrearAutoStyle = styled.div`
 				width: 45%;
 			}
 		}
+	}
+
+	@media (max-height: 500px) {
+		height: 125%;
 	}
 `;
 

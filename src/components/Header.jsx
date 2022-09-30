@@ -20,10 +20,16 @@ const HeaderStyle = styled.header`
 	}
 
 	@media (max-width: 360px) {
+		height: 17%;
+
 		& .headerLogo {
 			align-self: center;
 			margin: 0px;
 		}
+	}
+
+	@media (max-height: 500px) {
+		height: 25%;
 	}
 `;
 
