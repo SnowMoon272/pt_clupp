@@ -84,7 +84,7 @@ function Card({ brand, frontPictureURL, model, year, id, setinfoFirebase }) {
 	const handlerClick = (e) => {
 		try {
 			updateDocument(id);
-			alert("Vehículo eliminado");
+			// alert("Vehículo eliminado");
 			getDocuments()
 				.then((data) => {
 					const info = data;
