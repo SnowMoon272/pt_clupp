@@ -38,7 +38,6 @@ export const IniciarSesionStyle = styled.section`
 	}
 
 	@media (max-width: 360px) {
-		/* background-color: #00ddff29; */
 		align-items: flex-start;
 
 		& .formContainer {
@@ -225,7 +224,7 @@ export const ButtonStyle = styled.button`
 	font-size: 2.2rem;
 	font-weight: 600;
 	cursor: pointer;
-	position: absolute;
+	/* position: absolute; */
 
 	@media (max-width: 360px) {
 		width: 180px;

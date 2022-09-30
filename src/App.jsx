@@ -9,14 +9,12 @@ import { fabClasses } from "@mui/material";
 
 const AppStyle = styled.div`
 	box-sizing: border-box;
-	border: solid blue 3px;
 	width: 100%;
 	height: 100vh;
 `;
 
 function App() {
 	const [user, setuser] = useState(fabClasses);
-	// console.log(user);
 
 	return (
 		<AppStyle>
